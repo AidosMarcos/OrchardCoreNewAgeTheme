@@ -1,0 +1,2258 @@
+{
+  "name": "NewAgeTheme.OrchardCore",
+  "displayName": "NewAge Theme",
+  "description": "Starbootstrap theme adapted to OrchardCore",
+  "author": "Marcos Aidos and Sijemen Koffeman",
+  "website": "https://startbootstrap.com/template-overviews/new-age/",
+  "version": "1.0.0-beta3",
+  "issetuprecipe": true,
+  "categories": [" LandingPage"],
+  "tags": [" LandingPage"],
+
+  "variables": {
+    "defaultContentItemId": "[js: uuid()]"
+  },
+
+  "steps": [
+    {
+      "name": "Feature",
+      "enable": [
+        "OrchardCore.Settings",
+        "OrchardCore.Admin",
+        "OrchardCore.Liquid",
+        "OrchardCore.Contents",
+        "OrchardCore.ContentTypes",
+        "OrchardCore.Alias",
+        "OrchardCore.Autoroute",
+        "OrchardCore.ContentFields",
+        "OrchardCore.ContentPreview",
+        "OrchardCore.CustomSettings",
+        "OrchardCore.Deployment",
+        "OrchardCore.Deployment.Remote",
+        "OrchardCore.Diagnostics",
+        "OrchardCore.DynamicCache",
+        "OrchardCore.Resources",
+        "OrchardCore.Features",
+        "OrchardCore.Feeds",
+        "OrchardCore.Widgets",
+        "OrchardCore.Flows",
+        "OrchardCore.HomeRoute",
+        "OrchardCore.Html",
+        "OrchardCore.Scripting",
+        "OrchardCore.Layers",
+        "OrchardCore.Lists",
+        "OrchardCore.Markdown",
+        "OrchardCore.Title",
+        "OrchardCore.Media",
+        "OrchardCore.Menu",
+        "OrchardCore.Navigation",
+        "OrchardCore.Roles",
+        "OrchardCore.Users",
+        "OrchardCore.Queries",
+        "OrchardCore.Recipes",
+        "OrchardCore.Templates",
+        "OrchardCore.Themes",
+        "CafeTheme",
+        "NewAgeTheme",
+        "SafeMode",
+        "TheAdmin",
+        "TheAgencyTheme"
+      ],
+      "disable": [
+        "OrchardCore.DataProtection.Azure",
+        "OrchardCore.Email",
+        "OrchardCore.Forms",
+        "OrchardCore.Https",
+        "OrchardCore.Indexing",
+        "OrchardCore.Localization",
+        "OrchardCore.Lucene",
+        "OrchardCore.Lucene.Worker",
+        "OrchardCore.Media.Azure.Storage",
+        "OrchardCore.OpenId",
+        "OrchardCore.OpenId.Client",
+        "OrchardCore.OpenId.Management",
+        "OrchardCore.OpenId.EntityFrameworkCore",
+        "OrchardCore.OpenId.Server",
+        "OrchardCore.OpenId.Validation",
+        "OrchardCore.Queries.Sql",
+        "OrchardCore.XmlRpc",
+        "OrchardCore.RemotePublishing",
+        "OrchardCore.ResponseCache",
+        "OrchardCore.Setup",
+        "OrchardCore.Tenants",
+        "OrchardCore.Tenants.FileProvider",
+        "OrchardCore.Users.Registration",
+        "OrchardCore.Users.ResetPassword",
+        "OrchardCore.Users.TimeZone",
+        "OrchardCore.Workflows",
+        "OrchardCore.Workflows.Http",
+        "OrchardCore.Workflows.Timers",
+        "TheBlogTheme",
+        "TheTheme"
+      ]
+    },
+    {
+      "name": "ContentDefinition",
+      "ContentTypes": [
+        {
+          "Name": "Menu",
+          "DisplayName": "Menu",
+          "Settings": {
+            "Draftable": "True",
+            "Versionable": "True",
+            "Creatable": "True",
+            "Listable": "True"
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "1"
+              }
+            },
+            {
+              "PartName": "AliasPart",
+              "Name": "AliasPart",
+              "Settings": {
+                "Position": "2",
+                "AliasPartSettings": {
+                  "Pattern": "{{ ContentItem | display_text | slugify }}"
+                }
+              }
+            },
+            {
+              "PartName": "MenuPart",
+              "Name": "MenuPart",
+              "Settings": {
+                "Position": "3"
+              }
+            },
+            {
+              "PartName": "MenuItemsListPart",
+              "Name": "MenuItemsListPart",
+              "Settings": {
+                "Position": "4"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "LinkMenuItem",
+          "DisplayName": "Link Menu Item",
+          "Settings": {
+            "Stereotype": "MenuItem"
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "LinkMenuItemPart",
+              "Name": "LinkMenuItemPart",
+              "Settings": {}
+            }
+          ]
+        },
+        {
+          "Name": "LiquidPage",
+          "DisplayName": "Liquid Page",
+          "Settings": {
+            "Creatable": "True",
+            "Draftable": "True",
+            "Versionable": "True",
+            "Listable": "True",
+            "Securable": "False",
+            "Stereotype": null
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "LiquidPage",
+              "Name": "LiquidPage",
+              "Settings": {
+                "Position": "2"
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Pattern": "{{ ContentItem | display_text | slugify }}",
+                "AllowCustomPath": "True",
+                "ShowHomepageOption": "True",
+                "Position": "1"
+              }
+            },
+            {
+              "PartName": "LiquidPart",
+              "Name": "LiquidPart",
+              "Settings": {
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Position": "3"
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "HtmlWidget",
+          "DisplayName": "Html",
+          "Settings": {
+            "Creatable": "False",
+            "Draftable": "True",
+            "Versionable": "True",
+            "Listable": "False",
+            "Securable": "True",
+            "Stereotype": "Widget"
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "HtmlWidget",
+              "Name": "HtmlWidget",
+              "Settings": {
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Page",
+          "DisplayName": "Page",
+          "Settings": {
+            "Creatable": "True",
+            "Draftable": "True",
+            "Versionable": "True",
+            "Listable": "True",
+            "Securable": "True",
+            "Stereotype": null
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Page",
+              "Name": "Page",
+              "Settings": {
+                "Position": "3"
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "Position": "1",
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Pattern": "{{ ContentItem | display_text | slugify }}",
+                "AllowCustomPath": "True",
+                "ShowHomepageOption": "True"
+              }
+            },
+            {
+              "PartName": "FlowPart",
+              "Name": "FlowPart",
+              "Settings": {
+                "Position": "2"
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "LandingPage",
+          "DisplayName": "Landing Page",
+          "Settings": {
+            "Creatable": "True",
+            "Draftable": "True",
+            "Versionable": "True",
+            "Listable": "True",
+            "Securable": "True",
+            "Stereotype": null
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "LandingPage",
+              "Name": "LandingPage",
+              "Settings": {
+                "Position": "8"
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "Pattern": "{{ ContentItem | display_text | slugify }}",
+                "AllowCustomPath": "True",
+                "ShowHomepageOption": "True",
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Position": "1"
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "0"
+              }
+            },
+            {
+              "PartName": "BagPart",
+              "Name": "Services",
+              "Settings": {
+                "DisplayName": "Services",
+                "Description": "Provides a collection behavior for your content item.",
+                "Position": "3",
+                "ContainedContentTypes": [
+                  "Service"
+                ],
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                }
+              }
+            },
+            {
+              "PartName": "BagPart",
+              "Name": "Portfolio",
+              "Settings": {
+                "DisplayName": "Portfolio",
+                "Description": "Provides a collection behavior for your content item.",
+                "ContainedContentTypes": [
+                  "Project"
+                ],
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Position": "4"
+              }
+            },
+            {
+              "PartName": "BagPart",
+              "Name": "About",
+              "Settings": {
+                "DisplayName": "About",
+                "Description": "A collection of milestones",
+                "Position": "5",
+                "ContainedContentTypes": [
+                  "Milestone"
+                ],
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                }
+              }
+            },
+            {
+              "PartName": "BagPart",
+              "Name": "Team",
+              "Settings": {
+                "DisplayName": "Team",
+                "Description": "Team members",
+                "Position": "6",
+                "ContainedContentTypes": [
+                  "TeamMember"
+                ],
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                }
+              }
+            },
+            {
+              "PartName": "BagPart",
+              "Name": "Clients",
+              "Settings": {
+                "DisplayName": "Clients",
+                "Description": "Provides a collection behavior for your content item.",
+                "Position": "7",
+                "ContainedContentTypes": [
+                  "Client"
+                ],
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Service",
+          "DisplayName": "Service",
+          "Settings": {},
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Service",
+              "Name": "Service",
+              "Settings": {
+                "Position": "2"
+              }
+            },
+            {
+              "PartName": "HtmlBodyPart",
+              "Name": "HtmlBodyPart",
+              "Settings": {
+                "Position": "1"
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Project",
+          "DisplayName": "Project",
+          "Settings": {},
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Project",
+              "Name": "Project",
+              "Settings": {
+                "Position": "2"
+              }
+            },
+            {
+              "PartName": "HtmlBodyPart",
+              "Name": "HtmlBodyPart",
+              "Settings": {
+                "Position": "1"
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Milestone",
+          "DisplayName": "Milestone",
+          "Settings": {},
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Milestone",
+              "Name": "Milestone",
+              "Settings": {
+                "Position": "0"
+              }
+            },
+            {
+              "PartName": "HtmlBodyPart",
+              "Name": "HtmlBodyPart",
+              "Settings": {
+                "Position": "2"
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "1"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "TeamMember",
+          "DisplayName": "Team Member",
+          "Settings": {
+            "Creatable": "False",
+            "Draftable": "False",
+            "Versionable": "False",
+            "Listable": "False",
+            "Securable": "False",
+            "Stereotype": null
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "TeamMember",
+              "Name": "TeamMember",
+              "Settings": {
+                "Position": "1"
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Client",
+          "DisplayName": "Client",
+          "Settings": {
+            "Creatable": "False",
+            "Draftable": "False",
+            "Versionable": "False",
+            "Listable": "False",
+            "Securable": "False",
+            "Stereotype": null
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Client",
+              "Name": "Client",
+              "Settings": {
+                "Position": "1"
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Container",
+          "DisplayName": "Container",
+          "Settings": {
+            "Creatable": "False",
+            "Draftable": "True",
+            "Versionable": "True",
+            "Listable": "False",
+            "Securable": "True",
+            "Stereotype": "Widget"
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Container",
+              "Name": "Container",
+              "Settings": {
+                "Position": "0"
+              }
+            },
+            {
+              "PartName": "FlowPart",
+              "Name": "FlowPart",
+              "Settings": {
+                "Position": "1"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Blockquote",
+          "DisplayName": "Blockquote",
+          "Settings": {
+            "Creatable": "False",
+            "Draftable": "True",
+            "Versionable": "True",
+            "Listable": "False",
+            "Securable": "True",
+            "Stereotype": "Widget"
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Blockquote",
+              "Name": "Blockquote",
+              "Settings": {
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "ImageWidget",
+          "DisplayName": "Image",
+          "Settings": {
+            "Creatable": "False",
+            "Draftable": "True",
+            "Versionable": "True",
+            "Listable": "False",
+            "Securable": "True",
+            "Stereotype": "Widget"
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Image",
+              "Name": "Image",
+              "Settings": {
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "LiquidWidget",
+          "DisplayName": "Liquid",
+          "Settings": {
+            "Creatable": "False",
+            "Draftable": "True",
+            "Versionable": "True",
+            "Listable": "True",
+            "Securable": "True",
+            "Stereotype": "Widget"
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "LiquidPart",
+              "Name": "LiquidPart",
+              "Settings": {
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Image",
+          "DisplayName": "Image",
+          "Settings": {
+            "Creatable": "False",
+            "Draftable": "False",
+            "Versionable": "True",
+            "Listable": "False",
+            "Securable": "False",
+            "Stereotype": null
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Image",
+              "Name": "Image",
+              "Settings": {
+                "Position": "0"
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Paragraph",
+          "DisplayName": "Paragraph",
+          "Settings": {
+            "Creatable": "False",
+            "Draftable": "True",
+            "Versionable": "True",
+            "Listable": "False",
+            "Securable": "True",
+            "Stereotype": "Widget"
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Paragraph",
+              "Name": "Paragraph",
+              "Settings": {
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Aboutus",
+          "DisplayName": "Aboutus",
+          "Settings": {
+            "Creatable": "True",
+            "Draftable": "True",
+            "Versionable": "True",
+            "Listable": "True",
+            "Securable": "True",
+            "Stereotype": null
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Aboutus",
+              "Name": "Aboutus",
+              "Settings": {
+                "Position": "0"
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "Position": "2",
+                "Pattern": "{{ ContentItem | display_text | slugify }}",
+                "AllowCustomPath": "True",
+                "ShowHomepageOption": "False"
+              }
+            },
+            {
+              "PartName": "CommonPart",
+              "Name": "CommonPart",
+              "Settings": {
+                "Position": "3"
+              }
+            },
+            {
+              "PartName": "FlowPart",
+              "Name": "FlowPart",
+              "Settings": {
+                "Position": "4"
+              }
+            },
+            {
+              "PartName": "HtmlBodyPart",
+              "Name": "HtmlBodyPart",
+              "Settings": {
+                "Position": "5",
+                "HtmlBodyPartSettings": {
+                  "Editor": "Wysiwyg"
+                }
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "6"
+              }
+            },
+            {
+              "PartName": "AliasPart",
+              "Name": "AliasPart",
+              "Settings": {
+                "AliasPartSettings": {
+                  "Pattern": "{{ ContentItem | display_text | slugify }}"
+                },
+                "Position": "1"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Products",
+          "DisplayName": "Products",
+          "Settings": {
+            "Creatable": "True",
+            "Draftable": "True",
+            "Versionable": "True",
+            "Listable": "True",
+            "Securable": "True",
+            "Stereotype": null
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Products",
+              "Name": "Products",
+              "Settings": {
+                "Position": "0"
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "Pattern": "{{ ContentItem | display_text | slugify }}",
+                "AllowCustomPath": "True",
+                "ShowHomepageOption": "True",
+                "Position": "2"
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "3"
+              }
+            },
+            {
+              "PartName": "BagPart",
+              "Name": "BagPart",
+              "Settings": {
+                "DisplayName": "Bag",
+                "Description": "Provides a collection behavior for your content item.",
+                "ContainedContentTypes": [
+                  "Product"
+                ],
+                "DisplayType": null,
+                "Position": "4"
+              }
+            },
+            {
+              "PartName": "AliasPart",
+              "Name": "AliasPart",
+              "Settings": {
+                "Position": "1"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Product",
+          "DisplayName": "Product",
+          "Settings": {
+            "Creatable": "True",
+            "Draftable": "True",
+            "Versionable": "True",
+            "Listable": "True",
+            "Securable": "True",
+            "Stereotype": null
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Product",
+              "Name": "Product",
+              "Settings": {
+                "Position": "0"
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "Position": "1"
+              }
+            },
+            {
+              "PartName": "HtmlBodyPart",
+              "Name": "HtmlBodyPart",
+              "Settings": {
+                "Position": "2"
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "3"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "HomePage",
+          "DisplayName": "HomePage",
+          "Settings": {
+            "Creatable": "True",
+            "Draftable": "True",
+            "Versionable": "True",
+            "Listable": "True",
+            "Securable": "True",
+            "Stereotype": null
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "HomePage",
+              "Name": "HomePage",
+              "Settings": {
+                "Position": "0"
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "Pattern": "{{ ContentItem | display_text | slugify }}",
+                "AllowCustomPath": "True",
+                "ShowHomepageOption": "True",
+                "Position": "2"
+              }
+            },
+            {
+              "PartName": "BagPart",
+              "Name": "BagPart",
+              "Settings": {
+                "DisplayName": "Bag",
+                "Description": "Provides a collection behavior for your content item.",
+                "ContainedContentTypes": [
+                  "Product"
+                ],
+                "DisplayType": null,
+                "Position": "3"
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "4"
+              }
+            },
+            {
+              "PartName": "AliasPart",
+              "Name": "AliasPart",
+              "Settings": {
+                "Position": "1"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Store",
+          "DisplayName": "Store",
+          "Settings": {
+            "Creatable": "True",
+            "Draftable": "True",
+            "Versionable": "True",
+            "Listable": "True",
+            "Securable": "True",
+            "Stereotype": null
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Store",
+              "Name": "Store",
+              "Settings": {
+                "Position": "0"
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "Pattern": "{{ ContentItem | display_text | slugify }}",
+                "AllowCustomPath": "True",
+                "ShowHomepageOption": "False",
+                "Position": "2"
+              }
+            },
+            {
+              "PartName": "BagPart",
+              "Name": "BagPart",
+              "Settings": {
+                "DisplayName": "Bag",
+                "Description": "Provides a collection behavior for your content item.",
+                "ContainedContentTypes": [
+                  "Workinghours"
+                ],
+                "DisplayType": null,
+                "Position": "3"
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "4"
+              }
+            },
+            {
+              "PartName": "AliasPart",
+              "Name": "AliasPart",
+              "Settings": {
+                "Position": "1"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Workinghours",
+          "DisplayName": "Workinghours",
+          "Settings": {
+            "Creatable": "False",
+            "Draftable": "False",
+            "Versionable": "False",
+            "Listable": "False",
+            "Securable": "False",
+            "Stereotype": null
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Workinghours",
+              "Name": "Workinghours",
+              "Settings": {
+                "Position": "2"
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "0"
+              }
+            },
+            {
+              "PartName": "AliasPart",
+              "Name": "AliasPart",
+              "Settings": {
+                "Position": "1"
+              }
+            }
+          ]
+        }
+      ],
+      "ContentParts": [
+        {
+          "Name": "AliasPart",
+          "Settings": {
+            "Attachable": "True",
+            "Description": "Provides a way to define custom aliases for content items."
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "AutoroutePart",
+          "Settings": {
+            "Attachable": "True",
+            "Description": "Provides a custom url for your content item."
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "FlowPart",
+          "Settings": {
+            "Attachable": "True",
+            "Description": "Provides a customizable body for your content item."
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "BagPart",
+          "Settings": {
+            "Attachable": "True",
+            "Reusable": "True",
+            "Description": "Provides a collection behavior for your content item."
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "WidgetsListPart",
+          "Settings": {
+            "Attachable": "True",
+            "Description": "Provides a way to add widgets per content items."
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "HtmlBodyPart",
+          "Settings": {
+            "Attachable": "True",
+            "Description": "Provides an HTML Body for your content item."
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "ListPart",
+          "Settings": {
+            "Attachable": "True",
+            "Description": "Add a list behavior."
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "MarkdownBodyPart",
+          "Settings": {
+            "Attachable": "True",
+            "Description": "Provides a Markdown formatted body for your content item."
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "CommonPart",
+          "Settings": {
+            "Attachable": "True",
+            "Description": "Provides an editor for the common properties of a content item."
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "LiquidPart",
+          "Settings": {
+            "Attachable": "True",
+            "Description": "Provides a Liquid formatted body for your content item."
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "TitlePart",
+          "Settings": {
+            "Attachable": "True",
+            "Description": "Provides a Title for your content item."
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "HtmlWidget",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "HtmlField",
+              "Name": "Content",
+              "Settings": {
+                "DisplayName": "Content",
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false
+                },
+                "Hint": null,
+                "Editor": "Multiline",
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "MenuItem",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "TextField",
+              "Name": "Link",
+              "Settings": {
+                "DisplayName": "Link",
+                "Hint": null,
+                "Editor": null,
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Service",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "TextField",
+              "Name": "IconClass",
+              "Settings": {
+                "DisplayName": "Icon Class",
+                "Hint": "The icon css class from font-awesome. e.g., fa-laptop, fa-shopping-cart, fa-lock",
+                "Editor": null,
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Project",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "MediaField",
+              "Name": "Image",
+              "Settings": {
+                "DisplayName": "Image",
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Hint": null,
+                "Required": true,
+                "Multiple": false,
+                "Position": "1"
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "Category",
+              "Settings": {
+                "DisplayName": "Category",
+                "Hint": "The category that is displayed below the title",
+                "Editor": null,
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Milestone",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "TextField",
+              "Name": "Date",
+              "Settings": {
+                "DisplayName": "Date",
+                "Hint": null,
+                "Editor": null,
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Position": "0"
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "Image",
+              "Settings": {
+                "DisplayName": "Image",
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Hint": null,
+                "Required": true,
+                "Multiple": false,
+                "Position": "1"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "TeamMember",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "TextField",
+              "Name": "Occupation",
+              "Settings": {
+                "DisplayName": "Occupation",
+                "Hint": null,
+                "Editor": null,
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Position": "0"
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "Picture",
+              "Settings": {
+                "DisplayName": "Picture",
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Hint": null,
+                "Required": true,
+                "Multiple": false,
+                "Position": "1"
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "Twitter",
+              "Settings": {
+                "DisplayName": "Twitter",
+                "Hint": "Twitter handle, e.g. @BillGates",
+                "Editor": null,
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Position": "2"
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "Facebook",
+              "Settings": {
+                "DisplayName": "Facebook",
+                "Hint": "Facebook handle",
+                "Editor": null,
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Position": "3"
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "LinkedIn",
+              "Settings": {
+                "DisplayName": "LinkedIn",
+                "Hint": "LinkedIn handle",
+                "Editor": null,
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Position": "4"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Client",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "MediaField",
+              "Name": "Logo",
+              "Settings": {
+                "DisplayName": "Logo",
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Hint": null,
+                "Required": true,
+                "Multiple": false,
+                "Position": "0"
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "Url",
+              "Settings": {
+                "DisplayName": "Url",
+                "Hint": null,
+                "Editor": null,
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Position": "1"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Blockquote",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "TextField",
+              "Name": "Quote",
+              "Settings": {
+                "DisplayName": "Quote",
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false
+                },
+                "Hint": null,
+                "Editor": "TextArea",
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Image",
+          "Settings": {
+            "Attachable": true
+          },
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "MediaField",
+              "Name": "Media",
+              "Settings": {
+                "DisplayName": "Image",
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false
+                },
+                "Hint": null,
+                "Editor": null,
+                "Position": "0",
+                "Multiple": false,
+                "Required": true
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "Caption",
+              "Settings": {
+                "DisplayName": "Caption",
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "Hint": "A description of the image used as title or alternate text",
+                "Editor": null,
+                "Position": "1"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Paragraph",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "HtmlField",
+              "Name": "Content",
+              "Settings": {
+                "DisplayName": "Content",
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false
+                },
+                "Hint": null,
+                "Editor": "Wysiwyg",
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Aboutus",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "MediaField",
+              "Name": "AboutUsImage",
+              "Settings": {
+                "DisplayName": "AboutUsImage",
+                "Hint": null,
+                "Required": true,
+                "Multiple": false,
+                "Position": "0"
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "Slogan",
+              "Settings": {
+                "DisplayName": "Slogan",
+                "Hint": null,
+                "Editor": null,
+                "Position": "1"
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "SubSlogan",
+              "Settings": {
+                "DisplayName": "SubSlogan",
+                "Hint": null,
+                "Editor": null,
+                "Position": "2"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Product",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "MediaField",
+              "Name": "ProdImage",
+              "Settings": {
+                "DisplayName": "ProdImage",
+                "Hint": "The image of the product",
+                "Required": false,
+                "Multiple": false,
+                "Position": "0"
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "ProdSubTitle",
+              "Settings": {
+                "DisplayName": "ProdSubTitle",
+                "Hint": null,
+                "Editor": null,
+                "Position": "1"
+              }
+            },
+            {
+              "FieldName": "LinkField",
+              "Name": "Link",
+              "Settings": {
+                "DisplayName": "Link",
+                "Hint": null,
+                "HintLinkText": null,
+                "Required": false,
+                "LinkTextMode": 0,
+                "UrlPlaceholder": null,
+                "TextPlaceholder": null,
+                "DefaultUrl": null,
+                "DefaultText": null
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Store",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "TextField",
+              "Name": "Subtitle",
+              "Settings": {
+                "DisplayName": "Subtitle",
+                "Hint": null,
+                "Editor": null,
+                "Position": "0"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Workinghours",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "TextField",
+              "Name": "Weekday",
+              "Settings": {
+                "DisplayName": "Weekday",
+                "Hint": null,
+                "Editor": null,
+                "Position": "0"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "themes",
+      "Site": "NewAgeTheme.OrchardCore",
+      "Admin": "TheAdmin"
+    },
+    {
+      "name": "Content",
+      "data": [
+        {
+          "ContentItemId": "[js:uuid()]",
+          "ContentItemVersionId": "[js:uuid()]",
+          "ContentType": "HtmlWidget",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2018-08-02T14:31:26.7506199Z",
+          "PublishedUtc": "2018-08-02T14:31:26.8132085Z",
+          "CreatedUtc": "2018-08-02T14:31:26.8132085Z",
+          "Owner": "admin",
+          "Author": "admin",
+          "LayerMetadata": {
+            "Title": "Footer",
+            "Layer": "Always",
+            "Zone": "Footer",
+            "RenderTitle": false,
+            "Position": 10
+          },
+          "HtmlWidget": {
+            "Content": {
+              "Html": "<!-- Footer -->\r\n<footer>\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-4\">\r\n                <span class=\"copyright\">Copyright &copy; Your Website 2018</span>\r\n            </div>\r\n            <div class=\"col-md-4\">\r\n                <ul class=\"list-inline social-buttons\">\r\n                    <li class=\"list-inline-item\">\r\n                        <a href=\"#\">\r\n                            <i class=\"fa fa-twitter\"></i>\r\n                        </a>\r\n                    </li>\r\n                    <li class=\"list-inline-item\">\r\n                        <a href=\"#\">\r\n                            <i class=\"fa fa-facebook\"></i>\r\n                        </a>\r\n                    </li>\r\n                    <li class=\"list-inline-item\">\r\n                        <a href=\"#\">\r\n                            <i class=\"fa fa-linkedin\"></i>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n            <div class=\"col-md-4\">\r\n                <ul class=\"list-inline quicklinks\">\r\n                    <li class=\"list-inline-item\">\r\n                        <a href=\"#\">Privacy Policy</a>\r\n                    </li>\r\n                    <li class=\"list-inline-item\">\r\n                        <a href=\"#\">Terms of Use</a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</footer>"
+            }
+          }
+        },
+        {
+          "ContentItemId": "[js:uuid()]",
+          "ContentItemVersionId": "[js:uuid()]",
+          "ContentType": "Aboutus",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2018-08-03T13:23:13.1141796Z",
+          "PublishedUtc": "2018-08-03T13:23:13.3470079Z",
+          "CreatedUtc": "2018-08-02T15:13:42.9070607Z",
+          "Owner": "admin",
+          "Author": "admin",
+          "Aboutus": {
+            "AboutUsImage": {
+              "Paths": [
+                "about/about.jpg"
+              ]
+            },
+            "Slogan": {
+              "Text": "Strong Coffee, Strong Roots"
+            },
+            "SubSlogan": {
+              "Text": "About Our Cafe"
+            }
+          },
+          "AutoroutePart": {
+            "Path": "aboutus",
+            "SetHomepage": false
+          },
+          "CommonPart": {},
+          "FlowPart": {
+            "Widgets": []
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>Founded in 1987 by the Hernandez brothers, our establishment has been serving up rich coffee sourced from artisan farmers in various regions of South and Central America. We are dedicated to travelling the world, finding the best coffee, and bringing back to you here in our cafe.</p><p>We guarantee that you will fall in lust with our decadent blends the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.</p>"
+          },
+          "TitlePart": {
+            "Title": "AboutUs"
+          },
+          "AliasPart": {
+            "Alias": "about-us"
+          }
+        },
+        {
+          "ContentItemId": "[js:uuid()]",
+          "ContentItemVersionId": "[js:uuid()]",
+          "ContentType": "Store",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2018-08-06T09:56:10.587945Z",
+          "PublishedUtc": "2018-08-06T09:56:10.6285938Z",
+          "CreatedUtc": "2018-08-03T10:33:20.5494155Z",
+          "Owner": "admin",
+          "Author": "admin",
+          "Store": {
+            "Subtitle": {
+              "Text": "We're Open"
+            }
+          },
+          "AutoroutePart": {
+            "Path": "store",
+            "SetHomepage": false
+          },
+          "BagPart": {
+            "ContentItems": [
+              {
+                "Id": 0,
+                "ContentItemId": "[js:uuid()]",
+                "ContentItemVersionId": null,
+                "ContentType": "Workinghours",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2018-08-06T09:56:10.6060978Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": null,
+                "Author": "admin",
+                "Workinghours": {
+                  "Weekday": {
+                    "Text": "Sunday"
+                  }
+                },
+                "TitlePart": {
+                  "Title": "Closed"
+                },
+                "AliasPart": {
+                  "Alias": null
+                }
+              },
+              {
+                "Id": 0,
+                "ContentItemId": "[js:uuid()]",
+                "ContentItemVersionId": null,
+                "ContentType": "Workinghours",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2018-08-06T09:56:10.6100991Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": null,
+                "Author": "admin",
+                "Workinghours": {
+                  "Weekday": {
+                    "Text": "Monday"
+                  }
+                },
+                "TitlePart": {
+                  "Title": "7:00 AM to 8:00 PM"
+                },
+                "AliasPart": {
+                  "Alias": null
+                }
+              },
+              {
+                "Id": 0,
+                "ContentItemId": "[js:uuid()]",
+                "ContentItemVersionId": null,
+                "ContentType": "Workinghours",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2018-08-06T09:56:10.6139267Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": null,
+                "Author": "admin",
+                "Workinghours": {
+                  "Weekday": {
+                    "Text": "Tuesday"
+                  }
+                },
+                "TitlePart": {
+                  "Title": "7:00 AM to 8:00 PM"
+                },
+                "AliasPart": {
+                  "Alias": null
+                }
+              },
+              {
+                "Id": 0,
+                "ContentItemId": "[js:uuid()]",
+                "ContentItemVersionId": null,
+                "ContentType": "Workinghours",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2018-08-06T09:56:10.617281Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": null,
+                "Author": "admin",
+                "Workinghours": {
+                  "Weekday": {
+                    "Text": "Wednesday"
+                  }
+                },
+                "TitlePart": {
+                  "Title": "7:00 AM to 8:00 PM"
+                },
+                "AliasPart": {
+                  "Alias": null
+                }
+              },
+              {
+                "Id": 0,
+                "ContentItemId": "[js:uuid()]",
+                "ContentItemVersionId": null,
+                "ContentType": "Workinghours",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2018-08-06T09:56:10.6212911Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": null,
+                "Author": "admin",
+                "Workinghours": {
+                  "Weekday": {
+                    "Text": "Friday"
+                  }
+                },
+                "TitlePart": {
+                  "Title": "7:00 AM to 8:00 PM"
+                },
+                "AliasPart": {
+                  "Alias": null
+                }
+              },
+              {
+                "Id": 0,
+                "ContentItemId": "[js:uuid()]",
+                "ContentItemVersionId": null,
+                "ContentType": "Workinghours",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2018-08-06T09:56:10.6238608Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": null,
+                "Author": "admin",
+                "Workinghours": {
+                  "Weekday": {
+                    "Text": "Saturday"
+                  }
+                },
+                "TitlePart": {
+                  "Title": "9:00 AM to 5:00 PM"
+                },
+                "AliasPart": {
+                  "Alias": null
+                }
+              }
+            ]
+          },
+          "TitlePart": {
+            "Title": "Come On In"
+          },
+          "AliasPart": {
+            "Alias": "store"
+          }
+        },
+        {
+          "ContentItemId": "[js:uuid()]",
+          "ContentItemVersionId": "[js:uuid()]",
+          "ContentType": "HomePage",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2018-08-06T09:56:53.8719211Z",
+          "PublishedUtc": "2018-08-06T09:56:53.9072982Z",
+          "CreatedUtc": "2018-08-03T08:54:38.0551812Z",
+          "Owner": "admin",
+          "Author": "admin",
+          "HomePage": {},
+          "AutoroutePart": {
+            "Path": "homepage",
+            "SetHomepage": true
+          },
+          "BagPart": {
+            "ContentItems": [
+              {
+                "Id": 0,
+                "ContentItemId": "[js:uuid()]",
+                "ContentItemVersionId": null,
+                "ContentType": "Product",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2018-08-06T09:56:53.8801575Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": null,
+                "Author": "admin",
+                "Product": {
+                  "ProdImage": {
+                    "Paths": [
+                      "about/intro.jpg"
+                    ]
+                  },
+                  "ProdSubTitle": {
+                    "Text": "Worth Drinking"
+                  },
+                  "Link": {
+                    "Url": "store",
+                    "Text": "Visit Us Today!"
+                  }
+                },
+                "AutoroutePart": {
+                  "Path": null,
+                  "SetHomepage": false
+                },
+                "HtmlBodyPart": {
+                  "Html": "Every cup of our quality artisan coffee starts with locally sourced, hand picked ingredients. Once you try it, our coffee will be a blissful addition to your everyday morning routine - we guarantee it! "
+                },
+                "TitlePart": {
+                  "Title": "Fresh Coffee"
+                }
+              },
+              {
+                "Id": 0,
+                "ContentItemId": "[js:uuid()]",
+                "ContentItemVersionId": null,
+                "ContentType": "Product",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2018-08-06T09:56:53.8886535Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": null,
+                "Author": "admin",
+                "Product": {
+                  "ProdImage": {
+                    "Paths": []
+                  },
+                  "ProdSubTitle": {
+                    "Text": "To You"
+                  },
+                  "Link": {
+                    "Url": null,
+                    "Text": null
+                  }
+                },
+                "AutoroutePart": {
+                  "Path": null,
+                  "SetHomepage": false
+                },
+                "HtmlBodyPart": {
+                  "Html": "When you walk into our shop to start your day, we are dedicated to providing you with friendly service, a welcoming atmosphere, and above all else, excellent products made with the highest quality ingredients. If you are not satisfied, please let us know and we will do whatever we can to make things right!"
+                },
+                "TitlePart": {
+                  "Title": "Our Promise"
+                }
+              }
+            ]
+          },
+          "TitlePart": {
+            "Title": "HomePage"
+          },
+          "AliasPart": {
+            "Alias": "homepage"
+          }
+        },
+        {
+          "ContentItemId": "[js:uuid()]",
+          "ContentItemVersionId": "[js:uuid()]",
+          "ContentType": "Menu",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2018-08-06T14:01:10.4803531Z",
+          "PublishedUtc": "2018-08-06T14:01:10.4885894Z",
+          "CreatedUtc": "2018-08-06T13:46:45.8451286Z",
+          "Owner": "admin",
+          "Author": "admin",
+          "TitlePart": {
+            "Title": "NewAge Menu"
+          },
+          "AliasPart": {
+            "Alias": "main-menu3"
+          },
+          "MenuPart": {},
+          "MenuItemsListPart": {
+            "MenuItems": [
+              {
+                "Id": 0,
+                "ContentItemId": "[js:uuid()]",
+                "ContentItemVersionId": null,
+                "ContentType": "LinkMenuItem",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2018-08-06T13:47:05.3135619Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": null,
+                "Author": "admin",
+                "LinkMenuItemPart": {
+                  "Name": "Home",
+                  "Url": "#pagetop"
+                }
+              },
+              {
+                "Id": 0,
+                "ContentItemId": "[js:uuid()]",
+                "ContentItemVersionId": null,
+                "ContentType": "LinkMenuItem",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2018-08-06T13:47:34.8015552Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": null,
+                "Author": "admin",
+                "LinkMenuItemPart": {
+                  "Name": "Products",
+                  "Url": "#products"
+                }
+              },
+              {
+                "Id": 0,
+                "ContentItemId": "[js:uuid()]",
+                "ContentItemVersionId": null,
+                "ContentType": "LinkMenuItem",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2018-08-06T13:47:49.1122336Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": null,
+                "Author": "admin",
+                "LinkMenuItemPart": {
+                  "Name": "About",
+                  "Url": "#about"
+                }
+              },
+              {
+                "Id": 0,
+                "ContentItemId": "[js:uuid()]",
+                "ContentItemVersionId": null,
+                "ContentType": "LinkMenuItem",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2018-08-06T13:48:00.0144036Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": null,
+                "Author": "admin",
+                "LinkMenuItemPart": {
+                  "Name": "Store",
+                  "Url": "#store"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js:uuid()]",
+          "ContentItemVersionId": "[js:uuid()]",
+          "ContentType": "Products",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2018-08-06T14:09:53.9540598Z",
+          "PublishedUtc": "2018-08-06T14:09:53.9859012Z",
+          "CreatedUtc": "2018-08-02T16:59:37.9574411Z",
+          "Owner": "admin",
+          "Author": "admin",
+          "Products": {},
+          "AutoroutePart": {
+            "Path": "products",
+            "SetHomepage": false
+          },
+          "BagPart": {
+            "ContentItems": [
+              {
+                "Id": 0,
+                "ContentItemId": "[js:uuid()]",
+                "ContentItemVersionId": null,
+                "ContentType": "Product",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2018-08-06T14:09:53.9634862Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": null,
+                "Author": "admin",
+                "Product": {
+                  "ProdImage": {
+                    "Paths": [
+                      "about/products-01.jpg"
+                    ]
+                  },
+                  "ProdSubTitle": {
+                    "Text": "Blended to Perfection"
+                  },
+                  "Link": {
+                    "Url": null,
+                    "Text": null
+                  }
+                },
+                "AutoroutePart": {
+                  "Path": null,
+                  "SetHomepage": false
+                },
+                "HtmlBodyPart": {
+                  "Html": "We take pride in our work, and it shows. Every time you order a beverage from us, we guarantee that it will be an experience worth having. Whether it's our world famous Venezuelan Cappuccino, a refreshing iced herbal tea, or something as simple as a cup of speciality sourced black coffee, you will be coming back for more."
+                },
+                "TitlePart": {
+                  "Title": "Coffees & Teas"
+                }
+              },
+              {
+                "Id": 0,
+                "ContentItemId": "[js:uuid()]",
+                "ContentItemVersionId": null,
+                "ContentType": "Product",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2018-08-06T14:09:53.9691505Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": null,
+                "Author": "admin",
+                "Product": {
+                  "ProdImage": {
+                    "Paths": [
+                      "about/products-02.jpg"
+                    ]
+                  },
+                  "ProdSubTitle": {
+                    "Text": "Delicious Treats, Good Eats"
+                  },
+                  "Link": {
+                    "Url": null,
+                    "Text": null
+                  }
+                },
+                "AutoroutePart": {
+                  "Path": null,
+                  "SetHomepage": false
+                },
+                "HtmlBodyPart": {
+                  "Html": "Our seasonal menu features delicious snacks, baked goods, and even full meals perfect for breakfast or lunchtime. We source our ingredients from local, oragnic farms whenever possible, alongside premium vendors for specialty goods."
+                },
+                "TitlePart": {
+                  "Title": "Bakery & Kitchen"
+                }
+              },
+              {
+                "Id": 0,
+                "ContentItemId": "[js:uuid()]",
+                "ContentItemVersionId": null,
+                "ContentType": "Product",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2018-08-06T14:09:53.9775439Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": null,
+                "Author": "admin",
+                "Product": {
+                  "ProdImage": {
+                    "Paths": [
+                      "about/products-03.jpg"
+                    ]
+                  },
+                  "ProdSubTitle": {
+                    "Text": "From Around the World"
+                  },
+                  "Link": {
+                    "Url": null,
+                    "Text": null
+                  }
+                },
+                "AutoroutePart": {
+                  "Path": null,
+                  "SetHomepage": false
+                },
+                "HtmlBodyPart": {
+                  "Html": "Travelling the world for the very best quality coffee is something take pride in. When you visit us, you'll always find new blends from around the world, mainly from regions in Central and South America. We sell our blends in smaller to large bulk quantities. Please visit us in person for more details."
+                },
+                "TitlePart": {
+                  "Title": "Bulk Speciality Blends"
+                }
+              }
+            ]
+          },
+          "ListPart": {
+            "FeedProxyUrl": null,
+            "FeedItemsCount": 20
+          },
+          "TitlePart": {
+            "Title": "Products"
+          },
+          "AliasPart": {
+            "Alias": "products"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Layers",
+      "Layers": [
+        {
+          "Name": "Always",
+          "Rule": "true",
+          "Description": "The widgets in this layer are displayed on any page of this site."
+        },
+        {
+          "name": "media",
+          "Files": [
+            {
+              "Path": "about/about.jpg",
+              "Base64": "[file:base64('../wwwroot/img/about.jpg')]"
+            },
+            {
+              "Path": "about/bg.jpg",
+              "Base64": "[file:base64('../wwwroot/img/bg.jpg')]"
+            },
+            {
+              "Path": "about/intro.jpg",
+              "Base64": "[file:base64('../wwwroot/img/intro.jpg')]"
+            },
+            {
+              "Path": "about/products-01.jpg",
+              "Base64": "[file:base64('../wwwroot/img/products-01.jpg')]"
+            },
+            {
+              "Path": "about/products-02.jpg",
+              "Base64": "[file:base64('../wwwroot/img/products-02.jpg')]"
+            },
+            {
+              "Path": "about/products-03.jpg",
+              "Base64": "[file:base64('../wwwroot/img/products-03.jpg')]"
+            }
+          ]
+        },
+        {
+          "Name": "Homepage",
+          "Rule": "isHomepage()",
+          "Description": "The widgets in this layer are only displayed on the homepage."
+        }
+      ]
+    }
+  ]
+}
