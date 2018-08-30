@@ -60,6 +60,11 @@
       "disable": []
     },
     {
+      "name": "Themes",
+      "Site": "NewAgeTheme.OrchardCore",
+      "Admin": "TheAdmin"
+    },
+    {
       "name": "ContentDefinition",
       "ContentTypes": [
         {
@@ -1595,10 +1600,18 @@
         }
       ]
     },
+
     {
-      "name": "themes",
-      "Site": "NewAgeTheme.OrchardCore",
-      "Admin": "TheAdmin"
+      "name": "settings",
+      "HomeRoute": {
+        "Action": "Display",
+        "Controller": "Item",
+        "Area": "OrchardCore.Contents",
+        "ContentItemId": "[js: variables('defaultContentItemId')]"
+      },
+      "LayerSettings": {
+        "Zones": [ "Content" ]
+      }
     },
     {
       "name": "Content",
