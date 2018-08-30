@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="appveyor.yml" />
+    <EmbeddedResource Remove="NuGet.config" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="2.1.2" />
     <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-beta3-68240" />
@@ -14,6 +19,11 @@
   <ItemGroup>
     <Folder Include="wwwroot\" />
     <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="appveyor.yml" />
+    <None Include="NuGet.config" />
   </ItemGroup>
 
 </Project>

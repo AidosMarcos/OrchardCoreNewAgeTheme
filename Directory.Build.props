@@ -1,0 +1,15 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <PackageId>NewAgeTheme.OrchardCore</PackageId>
+    <Title>NewAge theme for Orchard Core</Title>
+    <Description>Orchard Core Theme based on the New Age css template from StartBootstrap.</Description>
+    <PackageTags>NewAge;OrchardCore</PackageTags>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionSuffix>rc</VersionSuffix>
+  </PropertyGroup>
+
+  <!-- Called after so that the <VersionSuffix> is built after the local ones -->
+  <Import Project="Common.props"/>
+
+</Project>
