@@ -2,7 +2,9 @@
 
 Theme for OrchardCore beta3 with recipe based on New Age theme by Start Bootstrap
 ### How to use in Orchard Core
-Create an empty ASP.NET Core web application. Reference OrchardCore.Application.Cms.Targets (from myget preview feed) Change the startup.cs class to AddOrchardCms() and UseOrchardCore() Reference this repo's nuget package (NewAgeTheme.OrchardCore) Run, choose NewAge recipe and presto, the site should appear!
+Create an empty ASP.NET Core web application. 
+Reference OrchardCore.Application.Cms.Targets (from myget preview feed) Change the startup.cs class to AddOrchardCms() and UseOrchardCore() 
+Reference this repo's nuget package (NewAgeTheme.OrchardCore) Run, choose NewAge recipe and presto, the site should appear!
 
 # [Start Bootstrap - New Age](https://startbootstrap.com/template-overviews/new-age/)
 
