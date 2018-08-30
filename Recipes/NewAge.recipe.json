@@ -52,8 +52,7 @@
         "OrchardCore.Recipes",
         "OrchardCore.Templates",
         "OrchardCore.Themes",
-        "CafeTheme",
-        "NewAgeTheme",
+        "NewAgeTheme.OrchardCore",
         "SafeMode",
         "TheAdmin",
         "TheAgencyTheme"
@@ -2211,41 +2210,41 @@
       ]
     },
     {
+      "name": "media",
+      "Files": [
+        {
+          "Path": "about/about.jpg",
+          "Base64": "[file:base64('../wwwroot/img/about.jpg')]"
+        },
+        {
+          "Path": "about/bg.jpg",
+          "Base64": "[file:base64('../wwwroot/img/bg.jpg')]"
+        },
+        {
+          "Path": "about/intro.jpg",
+          "Base64": "[file:base64('../wwwroot/img/intro.jpg')]"
+        },
+        {
+          "Path": "about/products-01.jpg",
+          "Base64": "[file:base64('../wwwroot/img/products-01.jpg')]"
+        },
+        {
+          "Path": "about/products-02.jpg",
+          "Base64": "[file:base64('../wwwroot/img/products-02.jpg')]"
+        },
+        {
+          "Path": "about/products-03.jpg",
+          "Base64": "[file:base64('../wwwroot/img/products-03.jpg')]"
+        }
+      ]
+    },
+    {
       "name": "Layers",
       "Layers": [
         {
           "Name": "Always",
           "Rule": "true",
           "Description": "The widgets in this layer are displayed on any page of this site."
-        },
-        {
-          "name": "media",
-          "Files": [
-            {
-              "Path": "about/about.jpg",
-              "Base64": "[file:base64('../wwwroot/img/about.jpg')]"
-            },
-            {
-              "Path": "about/bg.jpg",
-              "Base64": "[file:base64('../wwwroot/img/bg.jpg')]"
-            },
-            {
-              "Path": "about/intro.jpg",
-              "Base64": "[file:base64('../wwwroot/img/intro.jpg')]"
-            },
-            {
-              "Path": "about/products-01.jpg",
-              "Base64": "[file:base64('../wwwroot/img/products-01.jpg')]"
-            },
-            {
-              "Path": "about/products-02.jpg",
-              "Base64": "[file:base64('../wwwroot/img/products-02.jpg')]"
-            },
-            {
-              "Path": "about/products-03.jpg",
-              "Base64": "[file:base64('../wwwroot/img/products-03.jpg')]"
-            }
-          ]
         },
         {
           "Name": "Homepage",
